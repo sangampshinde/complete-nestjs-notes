@@ -183,6 +183,80 @@ export class AppService {
 
 ```
 
+# Module in NestJS
+
+A module in NestJS is a class marked with the @Module() decorator that groups related parts of an application together.
+
+It is used to organize:
+- controllers
+- services
+- providers
+- imports
+- exports
+
+You can think of a module as a feature container.
+
+
+A module in NestJS is a building block that organizes related functionality into one unit.
+
+Step-by-step understanding
+
+Step 1: NestJS app starts from a root module
+
+Every NestJS app has one main module, usually:
+
+```
+app.module.ts
+
+```
+This is called the root module.
+
+```
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+@Module({
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+
+```
+
+Step 2: A module is just a class with @Module()
+
+```
+import { Module } from '@nestjs/common';
+
+@Module({})
+export class UsersModule {}
+
+```
+
+This is the basic structure of a module.
+
+The @Module() decorator accepts metadata.
+
+Step 3: Understand the parts inside @Module()
+
+A module usually contains these properties:
+
+```
+
+@Module({
+  imports: [],
+  controllers: [],
+  providers: [],
+  exports: [],
+})
+
+```
+1. controllers
+
+
+
 
 
 
