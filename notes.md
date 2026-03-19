@@ -237,7 +237,7 @@ export class UsersModule {}
 
 This is the basic structure of a module.
 
-The @Module() decorator accepts metadata.
+The `@Module()` decorator accepts metadata.
 
 Step 3: Understand the parts inside @Module()
 
@@ -254,8 +254,53 @@ A module usually contains these properties:
 
 ```
 1. controllers
+Controllers handle incoming HTTP requests.
+
+```
+controllers: [UsersController]
+
+```
+
+This means this module contains the UsersController.
+
+2. providers
+
+Providers usually mean services.
+They contain business logic
+
+```
+providers: [UsersService]
+
+```
+
+This means this module can use `UsersService`.
+
+3. imports
+
+If one module needs another module, we import it.
+
+```
+imports: [AuthModule]
+
+```
+
+This means current module wants to use something from `AuthModule`.
+
+4. exports
+
+If a module wants to share its providers with other modules, it exports them.
+
+```
+exports: [UsersService]
+
+```
+
+Now other modules can use `UsersService` after importing `UsersModule`.
 
 
+Real example step by step
+
+Let us create a `UsersModule`.
 
 
 
