@@ -302,6 +302,114 @@ Real example step by step
 
 Let us create a `UsersModule`.
 
+Step 1: Generate module
+
+```
+nest g module users
+
+```
+
+```
+import { Module } from '@nestjs/common';
+
+@Module({})
+export class UsersModule {}
+
+```
+
+Step 2: Generate controller
+
+```
+nest g controller users
+```
+
+Step 3: Generate service
+
+```
+nest g service users
+
+```
+
+you complete modules
+
+```
+import { Module } from '@nestjs/common';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
+
+@Module({
+  controllers: [UsersController],
+  providers: [UsersService],
+})
+export class UsersModule {}
+
+```
 
 
+Folder structure of a module
+
+```
+
+src/
+  users/
+    users.module.ts
+    users.controller.ts
+    users.service.ts
+
+```
+
+
+bigger projects
+
+```
+
+src/
+  users/
+    dto/
+      create-user.dto.ts
+      update-user.dto.ts
+    entities/
+      user.entity.ts
+    users.module.ts
+    users.controller.ts
+    users.service.ts
+
+```
+
+Root module and feature module
+
+Root Module
+This is the main module of the whole application.
+
+Example:
+
+`AppModule`
+`Feature Module`
+
+These are modules for specific features.
+
+Examples:
+
+`UsersModule`
+`AuthModule`
+`OrdersModule`
+
+Then root module imports them.
+
+Example:
+```
+import { Module } from '@nestjs/common';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+
+@Module({
+  imports: [UsersModule, AuthModule],
+})
+export class AppModule {}
+
+```
+
+This means:
+- app will include users feature
+- app will include auth feature
 
