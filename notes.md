@@ -413,3 +413,27 @@ This means:
 - app will include users feature
 - app will include auth feature
 
+
+Important CLI commands
+
+Create module:
+
+```
+nest g module users
+```
+
+Create controller:
+
+```
+nest g controller users
+```
+Create service:
+
+```
+nest g service users
+```
+Create complete resource:
+
+```
+nest g resource users
+```
