@@ -69,4 +69,120 @@ npm run start:dev
 
 ```
 
+# NestJS Files and Folder Structure
+
+📁 Root Level Structure
+```
+my-app/
+│
+├── node_modules/
+├── src/
+├── test/
+├── package.json
+├── tsconfig.json
+├── nest-cli.json
+└── README.md
+
+```
+
+⭐ node_modules/
+Contains all installed packages.
+
+⭐ package.json
+Contains:
+- dependencies
+- scripts
+- project info
+
+⭐ nest-cli.json
+Nest CLI configuration file.
+Defines:
+- source folder
+- compiler options
+
+⭐ tsconfig.json
+TypeScript configuration.
+
+Controls:
+- compilation
+- strict mode
+- module system
+
+⭐ MOST IMPORTANT → src Folder
+This is where REAL development happens.
+```
+src/
+│
+├── main.ts
+├── app.module.ts
+├── app.controller.ts
+├── app.service.ts
+
+```
+
+🔥 main.ts (Entry Point)
+
+This file starts your NestJS server.
+Node starts → main.ts runs → server starts.
+
+
+```
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  await app.listen(3000);
+}
+bootstrap();
+
+```
+
+🔥 app.module.ts (Root Module)
+This is the heart of NestJS app.
+All modules are connected here.
+
+```
+@Module({
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+
+```
+
+🔥 app.controller.ts (Handles Requests)
+
+Controller handles:
+- GET
+- POST
+- PUT
+- DELETE
+
+```
+@Controller()
+export class AppController {
+
+  @Get()
+  getHello() {
+    return "Hello";
+  }
+
+}
+
+```
+
+🔥 app.service.ts (Business Logic)
+Service contains logic.
+
+```
+@Injectable()
+export class AppService {
+  getHello() {
+    return "Hello";
+  }
+}
+
+```
+
+
+
 
